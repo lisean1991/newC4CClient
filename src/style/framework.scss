@@ -1,0 +1,73 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+}
+
+textarea {
+  resize: none;
+}
+.Router {
+     position: absolute;
+     width: 100%;
+     transition: all .8s ease;
+     top: 40px;
+}
+
+.slide-left-enter,
+ .slide-right-leave-active {
+     opacity: 0;
+    -webkit-transform: translate(100%, 0);
+    transform: translate(100%, 0);
+}
+
+.slide-left-leave-active,
+.slide-right-enter {
+     opacity: 0;
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100% 0);
+}
+
+#app {
+  font-size: 100%;
+  font-family: 'ArialMT', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  overflow: auto;
+}
+
+.tile{
+  height: 19rem;
+  width:20rem;
+  position: relative;
+  margin-left: 1rem;
+  border-style:solid;
+}
+
+.homePage{
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.header{
+  margin:0 auto;
+  width:20rem;
+}
+
+.listItem{
+  border-color: black;
+  margin-top: 1px;
+}
