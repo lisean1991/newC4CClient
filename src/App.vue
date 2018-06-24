@@ -1,6 +1,6 @@
 <template>
   <div id="app" >
-    <h1 class="header">C4C Appointment</h1>
+    <!-- <h1 class="header">C4C Appointment</h1> -->
     <transition :name="fade">
       <div class="loading-container" v-if="isLoading">
         <loading-icon></loading-icon>

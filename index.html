@@ -24,6 +24,7 @@
         for (var file of chunk.files) {
           if (file.match(/\.(js|css)$/)) { %>
     <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
+    <script type="text/javascript" src="<%= htmlWebpackPlugin.files.publicPath %>static/resource/jquery-1.11.3.min.js"></script>
   </head>
   <body>
     <noscript>

@@ -12,6 +12,7 @@ import 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css
 import App from './App';
 import router from './router';
 import store from './store';
+import 'jquery';
 
 Vue.config.productionTip = false;
 

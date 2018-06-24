@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div id='home' class="homePage">
+    <home-header></home-header>
+    <home-body :homeData="homeData"></home-body>
+    <!-- <div id='home' class="homePage">
       <v-tile   v-for="tile in tiles"
               v-bind:key="tile.key"
               v-bind:id="tile.key"
@@ -8,15 +10,45 @@
               v-bind:count="tile.count"
               v-on:press="onPress">
       </v-tile>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
   import VTile from '@/components/tile';
+  import HomeHeader from '@/components/homeHeader';
+  import HomeBody from '@/components/HomeBody';
+  import constant from '@/utils/constant';
+
   export default {
     data:function(){
       return {
+        homeData:{
+          top:{
+            key:constant.homeNav.APPOINTMENT_LIST,
+            description:'Appointment List',
+          },//appointmentList
+          bottom:{
+            key:constant.homeNav.APPOINTMENT_CREATE,
+            description:'Create Appointment',
+          },//appointmentCreate
+          left:{
+            key:constant.homeNav.OPPORTUNITY_LIST,
+            description:'Opportunity List',
+          },//Opportunity list
+          right:{
+            key:constant.homeNav.OPPORTUNITY_CREATE,
+            description:'Create Opportunity',
+          },//Opportunity create
+          pre:{
+            key:constant.homeNav.BUSINESS_CARD_SCAN,
+            description:'Business Card Scan',
+          },//Business Card scan
+          back:{
+            key:constant.homeNav.MORE,
+            description:'More...',
+          }//more function
+        },
         tiles:[
           {
             key:"display",
@@ -32,6 +64,8 @@
       }
     } ,
     components: {
+      HomeHeader,
+      HomeBody,
       VTile
     },
     methods:{
