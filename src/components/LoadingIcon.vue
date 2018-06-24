@@ -1,6 +1,6 @@
 <template>
   <div :class="classObject">
-    <loader :size="size" color="#999999"></loader>
+    <loader :size="size" color="red" class="busyLoader"></loader>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     size() {
-      return this.isSmall ? '8px' : '20px';
+      return this.isSmall ? '8rem' : '20rem';
     },
     classObject() {
       return {
@@ -43,5 +43,8 @@ export default {
       margin: 0 5px;
       display: inline-block;
     }
+  }
+  .busyLoader{
+    margin-top: 10rem;
   }
 </style>

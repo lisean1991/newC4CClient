@@ -17,10 +17,12 @@ const actions = {
     try {
       const fetchApi = api.APPOINTMENT;
       const json = await fetch(fetchApi,{
-        method:"POST"
+        qs:{
+          openId:"o7GwL0XQh2_zlkOszcWfg75gqDSE"
+        }
       });
       console.log(json);
-      commit(types.FETCH_APPOINTMENT_LIST_DONE, json.data);
+      commit(types.FETCH_APPOINTMENT_LIST_DONE, json.appointments);
     } catch (error) {
       commit(types.FETCH_APPOINTMENT_LIST_DONE, null);
     }

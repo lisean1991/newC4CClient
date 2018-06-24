@@ -55,6 +55,9 @@
 <style lang="scss">
 @import '~styles/app.scss';
 .loading-container {
-  margin-top: 100px;
+  height: 100%;
+  opacity: 0.75;
+  /* z-index: 999; */
+  background-color: black
 }
 </style>
