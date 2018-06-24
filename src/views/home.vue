@@ -19,6 +19,7 @@
   import HomeHeader from '@/components/homeHeader';
   import HomeBody from '@/components/HomeBody';
   import constant from '@/utils/constant';
+  import { mapActions, mapGetters } from 'vuex';
 
   export default {
     data:function(){
@@ -63,12 +64,16 @@
         ]
       }
     } ,
+    async beforeMount() {
+        await this.fetchApponitmentList();
+    },
     components: {
       HomeHeader,
       HomeBody,
       VTile
     },
     methods:{
+      ...mapActions( ['fetchApponitmentList']),
       onPress:function(id){
         switch (id) {
           case "display":

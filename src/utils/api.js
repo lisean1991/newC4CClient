@@ -1,5 +1,6 @@
-const API_C4C = '/api/c4c';
+const API_C4C = '/api/v2';
+const APPOINTMENT = () => `${API_V2}/appointment`;
 
 export default {
-  APPOINTMENT: '/api/c4c/appointment',
+  APPOINTMENT: 'http://testc4cwc.duapp.com/getWCToken',
 };

@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import createLogger from 'vuex/dist/logger';
 import actions from './actions';
 import getters from './getters';
+import appointment from './modules/appointment';
 import mutations from './mutations';
 
 
@@ -31,7 +32,7 @@ export default new Vuex.Store({
   getters,
   mutations,
   modules: {
-
+    appointment
   },
   strict: debug,
   plugins: [createLogger({

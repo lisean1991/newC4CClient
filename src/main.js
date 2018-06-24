@@ -14,6 +14,7 @@ import router from './router';
 import store from './store';
 import 'jquery';
 
+
 Vue.config.productionTip = false;
 
 Vue.use(BootstrapVue);
