@@ -7,7 +7,8 @@ const initialState = {
   updateError: null,
   isUpdating: false,
   appointments:[],
-  appointment:{}
+  appointment:{},
+  selectedAppointmentId: null
 };
 
 const actions = {
@@ -81,11 +82,29 @@ const mutations = {
   },
   [types.FETCH_APPOINTMENT_LIST_DONE](context,data = []) {
     context.appointments = data;
+  },
+  [types.SELECT_APPOINTMENT](context, id) {
+  context.selectedAppointmentId = id;
+},
+};
+
+const getters = {
+  apmList(state, currentGetter) {
+    return state.appointments.map((appointment) => {
+      return {
+        ...appointment
+      };
+    });
+  },
+
+  selectAppointment(state, getter) {
+    return getter.apmList.find(appointment => appointment.id === state.selectedAppointmentId) || {};
   }
 };
 
 export default {
   state: initialState,
   actions,
-  mutations
+  mutations,
+  getters
 };
