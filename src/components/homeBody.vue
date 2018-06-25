@@ -1,22 +1,22 @@
 <template>
   <div class="homebody" >
     <div class="homebodybox" :style="{width:size.x+'rem',height:size.y+'rem'}">
-      <div id="top" class="homeCard" :style="styleTop" v-on:click="onPress(homeData.top.key)">
+      <div id="top" class="homeCard cardstyleTop" :style="styleTop" v-on:click="onPress(homeData.top.key)">
         <span class="homeManueText">{{homeData.top.description}}</span>
       </div>
-      <div id="bottom" class="homeCard" :style="styleBottom" v-on:click="onPress(homeData.bottom.key)">
+      <div id="bottom" class="homeCard cardstyleBottom" :style="styleBottom" v-on:click="onPress(homeData.bottom.key)">
         <span class="homeManueText">{{homeData.bottom.description}}</span>
       </div>
-      <div id="left" class="homeCard" :style="styleLeft" v-on:click="onPress(homeData.left.key)">
+      <div id="left" class="homeCard cardstyleLeft" :style="styleLeft" v-on:click="onPress(homeData.left.key)">
         <span class="homeManueText">{{homeData.left.description}}</span>
       </div>
-      <div id="right" class="homeCard" :style="styleRight" v-on:click="onPress(homeData.right.key)">
+      <div id="right" class="homeCard cardstyleRight" :style="styleRight" v-on:click="onPress(homeData.right.key)">
         <span class="homeManueText">{{homeData.right.description}}</span>
       </div>
-      <div id="pre" class="homeCard" :style="stylePre" v-on:click="onPress(homeData.pre.key)">
+      <div id="pre" class="homeCard cardstylePre" :style="stylePre" v-on:click="onPress(homeData.pre.key)">
         <span class="homeManueText">{{homeData.pre.description}}</span>
       </div>
-      <div id="back" class="homeCard" :style="styleBack" v-on:click="onPress(homeData.back.key)">
+      <div id="back" class="homeCard cardstyleBack" :style="styleBack" v-on:click="onPress(homeData.back.key)">
         <span class="homeManueText">{{homeData.back.description}}</span>
       </div>
     </div>
@@ -36,38 +36,32 @@
           z:25
         },
         styleLeft:{
-          backgroundImage: `url(static/img/1.png)`,
           transform: '',
           width:'',
           height:''
         },
         styleRight:{
-          backgroundImage: `url(static/img/2.png)`,
           transform: ``,
           width:'',
           height:''
         },
         styleTop:{
-          backgroundImage: `url(static/img/3.png)`,
           transform: ``,
           width:'',
           height:''
         },
         styleBottom:{
-          backgroundImage: `url(static/img/4.png)`,
           transform: ``,
           width:'',
           height:''
 
         },
         stylePre:{
-          backgroundImage: `url(static/img/5.png)`,
           transform: ``,
           width:'',
           height:''
         },
         styleBack:{
-          backgroundImage: `url(static/img/6.png)`,
           transform: ``,
           width:'',
           height:''

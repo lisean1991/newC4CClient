@@ -15,12 +15,8 @@ const actions = {
 
   async fetchApponitmentList({ commit }) {
     try {
-      const fetchApi = api.APPOINTMENT;
-      const json = await fetch(fetchApi,{
-        qs:{
-          openId:"o7GwL0XQh2_zlkOszcWfg75gqDSE"
-        }
-      });
+      const fetchApi = api.APPOINTMENT();
+      const json = await fetch(fetchApi);
       console.log(json);
       commit(types.FETCH_APPOINTMENT_LIST_DONE, json.appointments);
     } catch (error) {
@@ -92,6 +88,9 @@ const mutations = {
 
 const getters = {
   apmList(state, currentGetter) {
+    if(!state.appointments){
+      return;
+    }
     return state.appointments.map((appointment) => {
       return {
         ...appointment
