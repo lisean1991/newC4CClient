@@ -20,7 +20,7 @@
         </md-table-cell>
         <md-table-cell md-label="Sales Phase" md-sort-by="SalesPhaseCode">{{ item.SalesPhaseCodeText }}</md-table-cell>
         <md-table-cell md-label="Close Date">
-          {{item.CloseDate}}
+          {{item.CloseDate | convertTime}}
         </md-table-cell>
         <!--<md-table-cell md-label="Score" md-sort-by="Score">{{ item.Score }}</md-table-cell>-->
         <md-table-cell md-label="User Action">
@@ -44,12 +44,12 @@
 <script>
   import { mapActions, mapGetters, mapState } from 'vuex';
   import LoadingIcon from '@/components/NewLoadingIcon';
-  //import Util from '@/utils/utils';
+  import Util from '@/utils/utils';
   export default {
     name: 'opportnityList',
     data (){
       return {
-        list: null,
+        List: null,
         total: 0,
         listLoading: true,
         listQuery: {
@@ -62,12 +62,8 @@
       LoadingIcon
     },
     filters: {
-      statusFilter(status) {
-        const statusMap = {
-          '1-Open': 'success',
-          '2-in Process': 'info'
-        }
-        return statusMap[status]
+      convertTime(Time){
+        return Util.convertTimeStamp(Time);
       }
     },
     async created() {
@@ -93,79 +89,74 @@
         this.page = page;
       },
       getList: function(){
-        this.list = [
-          {
-            id: 1,
-            name: 'Opportunity 1',
-            account: 'Sean Li',
-            status: '1-Open',
-            salesPhase: 'Identify opportunity',
-            closeDate: '2018-06-30',
-            score: '80'
-          },
-          {
-            id: 2,
-            name: 'Opportunity 2',
-            account: 'Sean Li',
-            status: '2-In process',
-            salesPhase: 'Identify opportunity',
-            closeDate: '2018-06-29',
-            score: '100'
-          },
-          {
-            id: 3,
-            name: 'Opportunity 3',
-            account: 'Sean Li',
-            status: '2-In process',
-            salesPhase: 'Identify opportunity',
-            closeDate: '2018-06-29',
-            score: '100'
-          },
-          {
-            id: 4,
-            name: 'Opportunity 2',
-            account: 'Sean Li',
-            status: '2-In process',
-            salesPhase: 'Identify opportunity',
-            closeDate: '2018-06-29',
-            score: '100'
-          },
-          {
-            id: 5,
-            name: 'Opportunity 2',
-            account: 'Sean Li',
-            status: '2-In process',
-            salesPhase: 'Identify opportunity',
-            closeDate: '2018-06-29',
-            score: '100'
-          },
-          {
-            id: 6,
-            name: 'Opportunity 2',
-            account: 'Sean Li',
-            status: '2-In process',
-            salesPhase: 'Identify opportunity',
-            closeDate: '2018-06-29',
-            score: '100'
-          },
-          {
-            id: 7,
-            name: 'Opportunity 2',
-            account: 'Sean Li',
-            status: '2-In process',
-            salesPhase: 'Identify opportunity',
-            closeDate: '2018-06-29',
-            score: '100'
-          },
-          {
-            id: 8,
-            name: 'Opportunity 2',
-            account: 'Sean Li',
-            status: '2-In process',
-            salesPhase: 'Identify opportunity',
-            closeDate: '2018-06-29',
-            score: '100'
-          },
+        this.List = [
+//          {
+//            ID: 1,
+//            CloseDate: '/Date(1321401600000)/'
+//          }
+//          {
+//            id: 2,
+//            name: 'Opportunity 2',
+//            account: 'Sean Li',
+//            status: '2-In process',
+//            salesPhase: 'Identify opportunity',
+//            closeDate: '2018-06-29',
+//            score: '100'
+//          },
+//          {
+//            id: 3,
+//            name: 'Opportunity 3',
+//            account: 'Sean Li',
+//            status: '2-In process',
+//            salesPhase: 'Identify opportunity',
+//            closeDate: '2018-06-29',
+//            score: '100'
+//          },
+//          {
+//            id: 4,
+//            name: 'Opportunity 2',
+//            account: 'Sean Li',
+//            status: '2-In process',
+//            salesPhase: 'Identify opportunity',
+//            closeDate: '2018-06-29',
+//            score: '100'
+//          },
+//          {
+//            id: 5,
+//            name: 'Opportunity 2',
+//            account: 'Sean Li',
+//            status: '2-In process',
+//            salesPhase: 'Identify opportunity',
+//            closeDate: '2018-06-29',
+//            score: '100'
+//          },
+//          {
+//            id: 6,
+//            name: 'Opportunity 2',
+//            account: 'Sean Li',
+//            status: '2-In process',
+//            salesPhase: 'Identify opportunity',
+//            closeDate: '2018-06-29',
+//            score: '100'
+//          },
+//          {
+//            id: 7,
+//            name: 'Opportunity 2',
+//            account: 'Sean Li',
+//            status: '2-In process',
+//            salesPhase: 'Identify opportunity',
+//            closeDate: '2018-06-29',
+//            score: '100'
+//          },
+//          {
+//            id: 8,
+//            name: 'Opportunity 2',
+//            account: 'Sean Li',
+//            status: '2-In process',
+//            salesPhase: 'Identify opportunity',
+//            closeDate: '2018-06-29',
+//            score: '100'
+//          },
 //          {
 //            id: 9,
 //            name: 'Opportunity 2',
