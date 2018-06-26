@@ -11,6 +11,14 @@ const loadApplication = ({ commit }) => commit(types.LOAD_APPLICATION);
 
 const loadApplicationDone = ({ commit }) => commit(types.LOAD_APPLICATION_DONE);
 
+const fetchNetwork = async ({ commit }) => {
+  try {
+    const json = await fetch(api.CONNECTION);
+    commit(types.FETCH_NETWORK_SUCCESS,true);
+  } catch (err) {
+    commit(types.FETCH_NETWORK_FAIL, false);
+  }
+};
 
 const updateScrollStatus = _.throttle(({ commit }) => {
   const app = document.querySelector('#app');

@@ -18,6 +18,7 @@ export default new Vuex.Store({
     network: {},
     reports: [],
     isLoading: true,
+    isConnected:false,
     currentMember: {},
     isLoadingPage: false,
     route: null,

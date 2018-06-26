@@ -29,7 +29,7 @@
     },
     async created() {
       this.loadApplication();
-      //await this.fetchNetwork();
+      await this.fetchNetwork();
       this.loadApplicationDone();
     },
     computed: {
@@ -47,7 +47,7 @@
   　　}
 　  },
     methods: {
-      ...mapActions(['loadApplication', 'loadApplicationDone']),
+      ...mapActions(['loadApplication', 'loadApplicationDone',"fetchNetwork"]),
     }
   };
 </script>

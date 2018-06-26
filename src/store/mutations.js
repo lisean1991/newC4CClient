@@ -5,7 +5,6 @@ import * as types from './mutation-types';
 
 
 export default {
-
   [types.LOAD_PAGE](state) {
     state.isLoadingPage = true;
   },
@@ -17,5 +16,11 @@ export default {
   },
   [types.LOAD_APPLICATION_DONE](state) {
     state.isLoading = false;
+  },
+  [types.FETCH_NETWORK_SUCCESS](state) {
+    state.isConnected = true;
+  },
+  [types.FETCH_NETWORK_FAIL](state) {
+    state.isConnected = false;
   },
 };
