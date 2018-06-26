@@ -2,7 +2,7 @@
   <div class="card-expansion">
     <md-card>
       <md-card-media>
-        <img src="/static/img/opportunity.png">
+        <img src="~/static/img/opportunity.png">
       </md-card-media>
 
       <md-card-header>
@@ -31,7 +31,7 @@
 
     <md-card>
       <md-card-media>
-        <img src="/static/img/opportunity.png">
+        <img src="~/static/img/opportunity.png">
       </md-card-media>
 
       <md-card-header>
@@ -58,7 +58,7 @@
     </md-card>
     <md-card>
       <md-card-media>
-        <img src="/static/img/appointment.jpg">
+        <img src="~/static/img/appointment.jpg">
       </md-card-media>
 
       <md-card-header>
@@ -87,7 +87,7 @@
 
     <md-card>
       <md-card-media>
-        <img src="/static/img/appointment.jpg">
+        <img src="~/static/img/appointment.jpg">
       </md-card-media>
 
       <md-card-header>
