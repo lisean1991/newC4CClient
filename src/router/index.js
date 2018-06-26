@@ -1,12 +1,22 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '@/views/home';
+import Home from '@/views/NewHome';
 // import utils from '@/utils/utils';
+
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default.css'
+
+Vue.use(VueMaterial)
 
 const AppointmentList = () => import('@/views/appointmentList' /* webpackChunkName:"appointment-list" */);
 const AppointmentDetail = () => import('@/views/appointmentDetail' /* webpackChunkName:"appointment-detail" */);
 const AppointmentCreate = () => import('@/views/createAppointment' /* webpackChunkName:"appointment-create" */);
 const AppointmentEdit = () => import('@/views/editAppointment' /* webpackChunkName:"appointment-edit" */);
+const OpportunityList = () => import('@/views/OpportunityList' /* webpackChunkName:"appointment-list" */);
+const OpportunityDetail = () => import('@/views/OpportunityDetail' /* webpackChunkName:"appointment-detail" */);
+const OpportunityCreate = () => import('@/views/CreateOpportunity' /* webpackChunkName:"appointment-create" */);
+const OpportunityEdit = () => import('@/views/EditOpportunity' /* webpackChunkName:"appointment-edit" */);
 Vue.use(Router);
 
 const router = new Router({
@@ -40,6 +50,26 @@ const router = new Router({
       name: 'editAppointment',
       path: '/appointment/:id/edit',
       component: AppointmentEdit
+    },
+    {
+      path: '/opportunity/',
+      component: OpportunityList,
+      name: 'OpportunityList',
+    },
+    {
+      name: 'OpportunityCreate',
+      path: '/opportunity/create',
+      component: OpportunityCreate
+    },
+    {
+      name: 'OpportunityDetail',
+      path: '/opportunity/:id/detail',
+      component: OpportunityDetail,
+    },
+    {
+      name: 'editOpportunity',
+      path: '/opportunity/:id/edit',
+      component: OpportunityEdit
     }
   ],
 });

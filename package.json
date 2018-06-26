@@ -23,6 +23,7 @@
     "vue": "2.5.6",
     "vue-bootstrap-datetimepicker": "^4.1.0",
     "vue-js-toggle-button": "^1.2.0",
+    "vue-material": "^1.0.0-beta-10.2",
     "vue-monthly-picker": "^0.1.4",
     "vue-router": "^3.0.1",
     "vue-spinner": "^1.0.3",
