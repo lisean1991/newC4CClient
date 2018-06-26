@@ -13,7 +13,7 @@
       <md-card-expand>
         <md-card-actions md-alignment="space-between">
           <div>
-            <md-button v-on:click="onPress('opportunityList')">Launch</md-button>
+            <md-button v-on:click="onPress('OpportunityList')">Launch</md-button>
           </div>
 
           <md-card-expand-trigger>
@@ -41,7 +41,7 @@
       <md-card-expand>
         <md-card-actions md-alignment="space-between">
           <div>
-            <md-button v-on:click="onPress('opportunityCreate')">Launch</md-button>
+            <md-button v-on:click="onPress('OpportunityCreate')">Launch</md-button>
           </div>
 
           <md-card-expand-trigger>
