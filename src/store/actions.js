@@ -46,6 +46,7 @@ const cancelPreventLeave = ({ commit }) => {
 export default {
   loadPage,
   loadPageDone,
+  fetchNetwork,
   loadApplication,
   loadApplicationDone,
   updateScrollStatus,
