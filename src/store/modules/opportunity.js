@@ -13,6 +13,10 @@ const initialState = {
 
 const actions = {
 
+  getSelectOpportunity({ commit },ObjectID){
+    commit(types.SELECT_OPPORTUNITY, ObjectID);
+  },
+
   async fetchOpportunityList({ commit }) {
     try {
       const fetchApi = api.API_C4C_ODATA + '/OpportunityCollection?$top=20&$format=json';
@@ -84,7 +88,7 @@ const mutations = {
 };
 
 const getters = {
-  oppList(state, currentGetter) {
+  oppList(state) {
     if(!state.Opportunitys){
       return;
     }

@@ -17,3 +17,156 @@
   background-image: url(~static/img/6.png);
 
 }
+
+button{
+  max-height:28px;
+  padding-top:7px;
+  padding-bottom:7px;
+  padding-left:16px;
+  padding-right:16px;
+  appearance:none;
+  background-image: linear-gradient(to bottom, #FDFDFD 0%, #F7F7F7 100%);
+  border:solid 1px #d7d7d7;
+  border-radius:2px;
+  font-family:"Proxima Nova";
+  font-size:12px;
+  line-height:12px;
+  font-weight:600;
+  & + &{
+    margin-left:8px;
+  }
+}
+.container{
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  background: transparent;
+  overflow: hidden;
+  padding:0;
+  max-width: inherit;
+}
+.header{
+  padding:16px;
+  background: #fcfcfc;
+  border-bottom:1px solid #e1e1e1;
+  display: flex;
+  align-items: center;
+  width:auto;
+  span{
+    font-size:14px;
+    color:#666;
+  }
+  .buttons{
+    margin-left:auto;
+    margin-right:-7px;
+    margin-top:-8px;
+    margin-bottom:-8px;
+    display: flex;
+    button{
+      display:block;
+    }
+    button + button{
+      margin-left:8px;
+    }
+  }
+}
+
+#page{
+  padding:2rem;
+  width:100%;
+  overflow:hidden;
+  max-width:90rem;
+}
+
+//.page-container{
+//  background-color:#ff990042;
+//}
+.container-header{
+  font-size:1.5rem;
+  padding: 1rem;
+  background-color: lightgray;
+}
+.overview-container{
+  .overview{
+    padding:24px;
+    .overview-content{
+      margin-bottom:16px;
+      display:flex;
+      &:last-of-type{
+        margin-bottom:0;
+      }
+      .overview-name{
+        width: 10rem;
+        font-size : 0.75rem;
+        font-weight: bold;
+      }
+      .overview-descrption{
+        width: auto;
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+.party-container{
+  .party-header{
+  }
+  .parties{
+    padding-top:8px;
+    overflow:hidden;
+    .party{
+      padding:16px;
+      padding-top:20px;
+      border-bottom:solid 1px #ececec;
+      display: flex;
+      justify-content:stretch;
+      .party-left{
+        display: flex;
+        flex:4 0 40%;
+        .party-info{
+          .name{
+            color:#797979;
+            font-weight:600;
+            font-size:14px;
+            margin-bottom:6px;
+          }
+          .role{
+            color:#999999;
+            font-size:12px;
+          }
+        }
+      }
+      .party-right{
+        overflow:hidden;
+        flex:6 1 60%;
+        padding-left:32px;
+        .link{
+          color:#4A90E2;
+          font-size:14px;
+          text-decoration:underline;
+          margin-bottom: 6px;
+          width: 100%;
+          text-overflow:ellipsis;
+          white-space:nowrap;
+          overflow:hidden;
+        }
+        .detail{
+          display:flex;
+          margin-bottom:8px;
+          .detail-email{
+            flex:2;
+            font-size:12px;
+          }
+          .detail-phone{
+            flex:3;
+            color:#333333;
+            font-size:12px;
+          }
+        }
+      }
+    }
+  }
+}
+.header-action{
+  display: flex;
+  position: absolute;
+  right: 0;
+}

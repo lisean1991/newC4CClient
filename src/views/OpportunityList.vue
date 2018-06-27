@@ -62,9 +62,11 @@
       ...mapState([ 'isLoadingPage']),
     },
     methods:{
-      ...mapActions( ['fetchOpportunityList']),
+      ...mapActions( ['fetchOpportunityList','getSelectOpportunity']),
       ...mapActions(['loadPage', 'loadPageDone']),
+
       onPress: function(ObjectID){
+        this.getSelectOpportunity(ObjectID);
         this.$router.push({ name: 'OpportunityDetail', params: { id: ObjectID }})
       },
       backHome: function(){
