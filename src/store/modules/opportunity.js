@@ -8,7 +8,7 @@ const initialState = {
   isUpdating: false,
   Opportunitys:[],
   Opportunity:{},
-  selectedOpportunityId: null
+  selectedOpportunityObjectId: null
 };
 
 const actions = {
@@ -26,7 +26,7 @@ const actions = {
   },
 
   async fetchOpportunity({ commit }, key) {
-    if (!id) {
+    if (!key) {
       return;
     }
     try {
@@ -39,11 +39,11 @@ const actions = {
   },
 
   async updateOpportunity({ commit }, oData) {
-    if (!oData.uuid) {
+    if (!oData.ObjectID) {
       return;
     }
     try {
-      const json = await fetch(api.API_C4C_ODATA + "/OpportunityCollection(\'" + oData.uuid + "\')", {
+      const json = await fetch(api.API_C4C_ODATA + "/OpportunityCollection(\'" + oData.ObjectID + "\')", {
         method: 'PATCH',
         body: JSON.stringify(oData)
       });
@@ -68,7 +68,7 @@ const mutations = {
     if (!Opportunity) {
       return;
     }
-    const index = _.findIndex(context.Opportunitys, app => app.ID === Opportunity.ID);
+    const index = _.findIndex(context.Opportunitys, app => app.ObjectID === Opportunity.ObjectID);
     if (index !== -1) {
       context.Opportunitys.splice(index, 1, Opportunity);
     } else {
@@ -78,8 +78,8 @@ const mutations = {
   [types.FETCH_OPPORTUNITY_LIST_DONE](context,data = []) {
     context.Opportunitys = data;
   },
-  [types.SELECT_OPPORTUNITY](context, id) {
-    context.selectedOpportunityId = id;
+  [types.SELECT_OPPORTUNITY](context, objectID) {
+    context.selectedOpportunityObjectId = objectID;
   },
 };
 
@@ -96,7 +96,7 @@ const getters = {
   },
 
   selectOpportunity(state, getter) {
-    return getter.apmList.find(Opportunity => Opportunity.id === state.selectedOpportunityId) || {};
+    return getter.oppList.find(Opportunity => Opportunity.ObjectID === state.selectedOpportunityObjectId) || {};
   }
 };
 
