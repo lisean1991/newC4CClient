@@ -24,7 +24,7 @@
               Subject
             </div>
             <div class="overview-descrption">
-              Test Appointment
+              {{selectOpportunity.Name.content}}
             </div>
           </div>
           <div class="overview-content">
@@ -32,7 +32,7 @@
               Status
             </div>
             <div class="overview-descrption">
-              Open
+              {{selectOpportunity.StatusCodeText}}
             </div>
           </div>
           <div class="overview-content">
@@ -40,7 +40,7 @@
               Account
             </div>
             <div class="overview-descrption">
-              IKEA
+              {{selectOpportunity.AccountName.content}}
             </div>
           </div>
           <div class="overview-content">
@@ -48,39 +48,7 @@
               Primary Contact
             </div>
             <div class="overview-descrption">
-              Sean Li
-            </div>
-          </div>
-          <div class="overview-content">
-            <div class="overview-name">
-              Location
-            </div>
-            <div class="overview-descrption">
-              四川成都武侯祠大街231号 / CN
-            </div>
-          </div>
-          <div class="overview-content">
-            <div class="overview-name">
-              Start Date/Time
-            </div>
-            <div class="overview-descrption">
-              19.03.2018 4:00 PM
-            </div>
-          </div>
-          <div class="overview-content">
-            <div class="overview-name">
-              End Date/Time
-            </div>
-            <div class="overview-descrption">
-              19.03.2018 4:30 PM
-            </div>
-          </div>
-          <div class="overview-content">
-            <div class="overview-name">
-              Category
-            </div>
-            <div class="overview-descrption">
-              Customer Visit
+              {{selectOpportunity.PrimaryContactName.content}}
             </div>
           </div>
           <div class="overview-content">
@@ -88,7 +56,39 @@
               Priority
             </div>
             <div class="overview-descrption">
-              High
+              {{selectOpportunity.PriorityCodeText}}
+            </div>
+          </div>
+          <div class="overview-content">
+            <div class="overview-name">
+              Probability Percent
+            </div>
+            <div class="overview-descrption">
+              {{selectOpportunity.ProbabilityPercent}}
+            </div>
+          </div>
+          <div class="overview-content">
+            <div class="overview-name">
+              Expected Value
+            </div>
+            <div class="overview-descrption">
+              {{selectOpportunity.ExpectedValue.content}} {{selectOpportunity.ExpectedValue.currencyCode}}
+            </div>
+          </div>
+          <div class="overview-content">
+            <div class="overview-name">
+              Weighted Value
+            </div>
+            <div class="overview-descrption">
+              {{selectOpportunity.WeightedValue.content}} {{selectOpportunity.WeightedValue.currencyCode}}
+            </div>
+          </div>
+          <div class="overview-content">
+            <div class="overview-name">
+              Total Negotiated Value
+            </div>
+            <div class="overview-descrption">
+              {{selectOpportunity.TotalNegotiatedValue.content}} {{selectOpportunity.TotalNegotiatedValue.currencyCode}}
             </div>
           </div>
         </div>
@@ -97,48 +97,20 @@
       <!-- Involved party -->
       <div class="party-container container">
         <div class="party-header header">
-          <span>INVOLVED PARTIES(3)</span>
+          <span>INVOLVED PARTIES({{selectOpportunity.OpportunityInvolvedParties.length}})</span>
         </div>
         <div class="parties">
-          <div class="party">
+          <div class="party" v-for="party in selectOpportunity.OpportunityInvolvedParties">
             <div class="party-left">
               <div class="party-info">
-                <div class="name">Michael</div>
-                <div class="role">Organizer</div>
+                <div class="name">{{party.Name.content}}</div>
+                <div class="role">{{party.RoleCodeText}}</div>
               </div>
             </div>
             <div class="party-right">
               <div class="detail">
-                <div class="link detail-email">michael@qq.com</div>
-                <div class="detail-phone">13300002222</div>
-              </div>
-            </div>
-          </div>
-          <div class="party">
-            <div class="party-left">
-              <div class="party-info">
-                <div class="name">David</div>
-                <div class="role">Contact</div>
-              </div>
-            </div>
-            <div class="party-right">
-              <div class="detail">
-                <div class="link detail-email">david@qq.com</div>
-                <div class="detail-phone">13300003333</div>
-              </div>
-            </div>
-          </div>
-          <div class="party">
-            <div class="party-left">
-              <div class="party-info">
-                <div class="name">Max</div>
-                <div class="role">Employee Responsible</div>
-              </div>
-            </div>
-            <div class="party-right">
-              <div class="detail">
-                <div class="link detail-email">max@qq.com</div>
-                <div class="detail-phone">13300004444</div>
+                <div class="link detail-email">{{party.EMail}}</div>
+                <div class="detail-phone">{{party.Phone}}</div>
               </div>
             </div>
           </div>

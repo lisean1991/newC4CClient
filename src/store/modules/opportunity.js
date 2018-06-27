@@ -19,7 +19,7 @@ const actions = {
 
   async fetchOpportunityList({ commit }) {
     try {
-      const fetchApi = api.API_C4C_ODATA + '/OpportunityCollection?$top=20&$format=json';
+      const fetchApi = api.API_C4C_ODATA + '/OpportunityCollection?$top=20&$format=json&$expand=OpportunityInvolvedParties';
       const json = await fetch(fetchApi);
 
       console.log(json);

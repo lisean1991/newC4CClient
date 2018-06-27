@@ -1,7 +1,8 @@
 <template>
   <div class="app-container">
     <div class="loading-container" v-if="isLoadingPage">
-      <loading-icon></loading-icon>
+      <!-- <loading-icon></loading-icon> -->
+      <hot-heart></hot-heart>
     </div>
     <md-table v-model="oppList" md-sort="id" md-sort-order="asc" md-card md-fixed-header>
       <md-table-toolbar>
@@ -37,6 +38,7 @@
   import { mapActions, mapGetters, mapState } from 'vuex';
   import LoadingIcon from '@/components/NewLoadingIcon';
   import Util from '@/utils/utils';
+  import HotHeart from '@/components/HotHeart';
   export default {
     name: 'opportnityList',
     data (){
@@ -45,7 +47,8 @@
       }
     },
     components: {
-      LoadingIcon
+      LoadingIcon,
+      HotHeart
     },
     filters: {
       convertTime(Time){
