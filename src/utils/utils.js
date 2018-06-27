@@ -14,8 +14,12 @@ export default {
     return ['login', 'register', 'forgotPassword', 'resetPassword'];
   },
   convertTimeStamp(TimeStamp){
-    const timeCvt = eval(TimeStamp.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"));
-    return timeCvt.toLocaleDateString();
+    if(TimeStamp===null){
+      return null;
+    }else{
+      const timeCvt = eval(TimeStamp.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"));
+      return timeCvt.toLocaleDateString();
+    }
   }
 };
 
