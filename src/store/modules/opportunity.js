@@ -57,6 +57,18 @@ const actions = {
     }
   },
 
+
+  async createOpportunity({ commit }, oData) {
+    try {
+      const json = await fetch(api.API_C4C_ODATA + "/OpportunityCollection", {
+        method: 'POST',
+        body: JSON.stringify(oData)
+      });
+      commit(types.FETCH_OPPORTUNITY_DONE, json.d.results);
+    } catch (error) {
+      commit(types.FETCH_OPPORTUNITY, error);
+    }
+  }
 };
 
 const mutations = {

@@ -6,6 +6,7 @@ import getters from './getters';
 import appointment from './modules/appointment';
 import opportunity from './modules/opportunity';
 import mutations from './mutations';
+import account from './modules/account';
 
 
 Vue.use(Vuex);
@@ -35,7 +36,8 @@ export default new Vuex.Store({
   mutations,
   modules: {
     appointment,
-    opportunity
+    opportunity,
+    account
   },
   strict: debug,
   plugins: [createLogger({

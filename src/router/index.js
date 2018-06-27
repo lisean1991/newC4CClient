@@ -3,9 +3,9 @@ import Router from 'vue-router';
 import Home from '@/views/NewHome';
 // import utils from '@/utils/utils';
 
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.min.css'
-import 'vue-material/dist/theme/default.css'
+import VueMaterial from 'vue-material';
+import 'vue-material/dist/vue-material.min.css';
+import 'vue-material/dist/theme/default.css';
 
 Vue.use(VueMaterial)
 
@@ -20,9 +20,9 @@ const OpportunityEdit = () => import('@/views/EditOpportunity' /* webpackChunkNa
 Vue.use(Router);
 
 const router = new Router({
-  goBack: function(){
+  goBack: function () {
     this.isBack = true;
-　　window.history.go(-1);
+    window.history.go(-1);
   },
   scrollBehavior: () => ({ y: 0 }),
   routes: [
