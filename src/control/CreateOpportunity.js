@@ -1,15 +1,15 @@
-//import { validationMixin } from 'vuelidate';
+import { validationMixin } from 'vuelidate';
 import { mapActions, mapGetters, mapState  } from 'vuex';
-// import {
-//   required,
-//   email,
-//   minLength,
-//   maxLength
-// } from 'vuelidate/lib/validators';
+import {
+  required,
+  email,
+  minLength,
+  maxLength
+} from 'vuelidate/lib/validators';
 
 export default {
   name: 'FormValidation',
-//  mixins: [validationMixin],
+  mixins: [validationMixin],
   data: () => ({
     showOwnerDialog: false,
     showAccountDialog: false,
