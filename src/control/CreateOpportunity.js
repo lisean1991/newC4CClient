@@ -228,19 +228,20 @@ export default {
 
   async created() {
     await this.getAccountList();
+    await this.getEmployeeList();
   },
   computed: {
-    ...mapGetters(['accountList'])
+    ...mapGetters(['accountList', 'employeeList'])
   },
   methods: {
-    ...mapActions(['getAccountList', 'createOpportunity']),
+    ...mapActions(['getAccountList', 'createOpportunity', 'getEmployeeList']),
     getClass: ({ id }) => ({
       'md-primary': id === 2,
       'md-accent': id === 3
     }),
     onOwnerSelect(item) {
       this.selectedOwner = item;
-      this.form.owner = this.selectedOwner.name;
+      this.form.owner = this.selectedOwner.Name;
       this.showOwnerDialog = false;
     },
     onAccountSelect(item) {
@@ -277,6 +278,9 @@ export default {
       this.form.category = null
       this.form.owner = null;
     },
+    backHome(){
+      window.history.go(-1);
+    },
     saveOpportunity() {
       this.sending = true
 
@@ -289,8 +293,8 @@ export default {
         },
         DocumentTypeCode: this.form.documentType,
         SourceCode: this.form.source,
-        StartDate: this.form.startDate.toISOString().substring(0, 18),
-        CloseDate: this.form.endDate.toISOString().substring(0, 18),
+        StartDate: this.form.startDate ? this.form.startDate.toISOString().substring(0, 18) : null,
+        CloseDate: this.form.endDate ? this.form.endDate.toISOString().substring(0, 18) : null,
         PriorityCode: this.form.priority,
         PublishToForecast: this.form.publishToForecast,
         ForecastCategoryCode: this.form.forecastCategory,
@@ -303,10 +307,10 @@ export default {
       this.createOpportunity(newOpportunity);
       // Instead of this timeout, here you can call your API
       window.setTimeout(() => {
-        this.lastUser = `${this.form.name}`
         this.opportunitySaved = true
         this.sending = false
         this.clearForm();
+        window.history.go(-1);
       }, 1500);
     },
     validateOpportunity() {
