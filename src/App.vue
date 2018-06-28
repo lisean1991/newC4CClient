@@ -61,6 +61,9 @@
   height: 100%;
   opacity: 0.75;
   /* z-index: 999; */
-  background-color: black
+  position: absolute;
+  width: 100%;
+  z-index: 999;
+  background-color: white;
 }
 </style>
