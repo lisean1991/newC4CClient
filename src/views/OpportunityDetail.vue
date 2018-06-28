@@ -4,10 +4,10 @@
       <div class="header-line">
       <div class="container-header">Opportunity {{selectOpportunity.OpportunityID}}</div>
       <div class="header-action">
-        <md-button v-on:click="onEdit">
-          <md-icon>edit</md-icon>
-          <md-tooltip md-direction="top">Edit</md-tooltip>
-        </md-button>
+        <!--<md-button v-on:click="onEdit">-->
+          <!--<md-icon>edit</md-icon>-->
+          <!--<md-tooltip md-direction="top">Edit</md-tooltip>-->
+        <!--</md-button>-->
         <md-button v-on:click="backHome">
           <md-icon>arrow_back</md-icon>
           <md-tooltip md-direction="top">Go Back</md-tooltip>
@@ -20,27 +20,14 @@
         <div class="overview-header header">
           <span>Overview</span>
         </div>
-        <div>
-          <md-steppers>
-            <md-step id="first" md-label="Identify Opportunity">
-            </md-step>
-
-            <md-step id="second" md-label="Qualify Opportunity">
-            </md-step>
-
-            <md-step id="third" md-label="Develop value proposition">
-            </md-step>
-
-            <md-step id="fourth" md-label="Quotation">
-            </md-step>
-
-            <md-step id="fifth" md-label="Decision">
-            </md-step>
-
-            <md-step id="sixth" md-label="Close">
-            </md-step>
-          </md-steppers>
-        </div>
+        <ul class="stepNav sixWide" v-model="phase">
+          <li id = "001" :class="{'selected':this.selectOpportunity.SalesPhaseCode==='001'}"><a href="#" style='text-decoration:none;'>Identify Opportunity</a></li>
+          <li id = "002" :class="{'selected':this.selectOpportunity.SalesPhaseCode==='002'}"><a href="#" style='text-decoration:none;'>Qualify Opportunity</a></li>
+          <li id = "003" :class="{'selected':this.selectOpportunity.SalesPhaseCode==='003'}"><a href="#" style='text-decoration:none;'>Develop value proposition</a></li>
+          <li id = "004" :class="{'selected':this.selectOpportunity.SalesPhaseCode==='004'}"><a href="#" style='text-decoration:none;'>Quatotation</a></li>
+          <li id = "005" :class="{'selected':this.selectOpportunity.SalesPhaseCode==='005'}"><a href="#" style='text-decoration:none;'>Decision</a></li>
+          <li id = "006" :class="{'selected':this.selectOpportunity.SalesPhaseCode==='006'}"><a href="#" style='text-decoration:none;'>Close</a></li>
+        </ul>
         <div class="overview">
           <div class="overview-left">
           <div class="overview-content">
@@ -182,7 +169,6 @@
   export default {
     name: "Waterfall",
     data: () => ({
-
     }),
     computed:{
       ...mapGetters(['selectOpportunity']),
@@ -194,6 +180,7 @@
       backHome: function(){
         window.history.go(-1);
       },
+
     }
   };
 </script>
