@@ -23,6 +23,7 @@ export default new Vuex.Store({
     isConnected:false,
     currentMember: {},
     isLoadingPage: false,
+    isNewHome:true,
     route: null,
     windowHeight: window.innerHeight,
     scrollHeight: 0,

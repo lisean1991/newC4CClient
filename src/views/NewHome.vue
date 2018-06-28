@@ -1,5 +1,7 @@
 <template>
-  <div class="card-expansion">
+  <div>
+    <button type="button" v-on:click="Change">Change Style</button>
+  <div class="card-expansion" v-if="isNewHome">
     <md-card>
       <md-card-media>
         <img src="~/static/img/opportunity.png">
@@ -113,16 +115,66 @@
       <!--</md-card-expand>-->
     <!--</md-card>-->
   </div>
+  <div v-else>
+    <home-header></home-header>
+    <home-body :homeData="homeData"></home-body>
+  </div>
+</div>
 </template>
 
 <script>
+  import { mapActions, mapGetters, mapState } from 'vuex';
+  import HomeHeader from '@/components/homeHeader';
+  import HomeBody from '@/components/HomeBody';
+  import constant from '@/utils/constant';
+  import * as types from '@/store/mutation-types';
   export default {
     name: 'CardExpansion',
+    data:function(){
+      return {
+        homeData:{
+          top:{
+            key:constant.homeNav.APPOINTMENT_LIST,
+            description:'Appointment List',
+          },//appointmentList
+          bottom:{
+            key:constant.homeNav.APPOINTMENT_CREATE,
+            description:'Create Appointment',
+          },//appointmentCreate
+          left:{
+            key:constant.homeNav.OPPORTUNITY_LIST,
+            description:'Opportunity List',
+          },//Opportunity list
+          right:{
+            key:constant.homeNav.OPPORTUNITY_CREATE,
+            description:'Create Opportunity',
+          },//Opportunity create
+          pre:{
+            key:constant.homeNav.BUSINESS_CARD_SCAN,
+            description:'Business Card Scan',
+          },//Business Card scan
+          back:{
+            key:constant.homeNav.MORE,
+            description:'More...',
+          }//more function
+        }
+      }
+    } ,
+    computed:{
+      ...mapState([ 'isNewHome']),
+    },
+    components: {
+      HomeHeader,
+      HomeBody
+    },
     methods: {
       onPress(navName) {
         this.$router.push({
           name: navName
         });
+      },
+      Change(){
+        this.$store.commit(types.CHANGE_HOME_PAGE);
       }
     }
   }

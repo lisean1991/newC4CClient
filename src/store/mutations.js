@@ -23,4 +23,7 @@ export default {
   [types.FETCH_NETWORK_FAIL](state) {
     state.isConnected = false;
   },
+  [types.CHANGE_HOME_PAGE](state) {
+    state.isNewHome = !state.isNewHome;
+  },
 };

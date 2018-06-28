@@ -151,7 +151,8 @@
     			p.p0 = points[i - 1];
     			p.p1 = points[i + 1];
     			p.s = sx;
-    			p.texture(txt.charAt(i - 1), i === 5 ? "#f80" : "#fff");
+          console.log(txt.charAt(i - 1));
+    			p.texture(txt.charAt(i - 1), i === 5 ? "#f80" : "#000");
     		}
     	}
     	const run = () => {
@@ -178,7 +179,7 @@
   canvas {
   	position: absolute;
   	width: 100%;
-  	height: 60rem;
+  	height: 60rem !important;
   	user-select: none;
   }
 </style>
