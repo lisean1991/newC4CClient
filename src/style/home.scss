@@ -39,7 +39,7 @@ button{
 .container{
   box-shadow: 0 1px 3px rgba(0,0,0,0.12);
   background: transparent;
-  overflow: hidden;
+  overflow: auto;
   padding:0;
   max-width: inherit;
 }
@@ -70,10 +70,10 @@ button{
 }
 
 #page{
-  padding:2rem;
   width:100%;
-  overflow:hidden;
+  overflow:auto;
   max-width:90rem;
+  //max-height:700px;
 }
 
 //.page-container{
@@ -87,6 +87,10 @@ button{
 .overview-container{
   .overview{
     padding:24px;
+    display:flex;
+    .overview-left,.overview-left{
+      width:50%;
+    }
     .overview-content{
       margin-bottom:16px;
       display:flex;
@@ -110,23 +114,22 @@ button{
   .party-header{
   }
   .parties{
-    padding-top:8px;
-    overflow:hidden;
+    //padding-top:8px;
+    overflow:auto;
     .party{
       padding:16px;
-      padding-top:20px;
       border-bottom:solid 1px #ececec;
       display: flex;
       justify-content:stretch;
       .party-left{
         display: flex;
-        flex:4 0 40%;
+        flex:4 0 20%;
         .party-info{
           .name{
             color:#797979;
             font-weight:600;
             font-size:14px;
-            margin-bottom:6px;
+            //margin-bottom:6px;
           }
           .role{
             color:#999999;
@@ -135,7 +138,7 @@ button{
         }
       }
       .party-right{
-        overflow:hidden;
+        overflow:auto;
         flex:6 1 60%;
         padding-left:32px;
         .link{
@@ -174,4 +177,27 @@ button{
 
 .header-line{
   position: relative;
+}
+
+.product{
+  display: flex;
+  padding: 1rem;
+  .ID{
+    width:15rem;
+  }
+  .Description{
+    width:25rem;
+    overflow:hidden;
+  }
+  .Price{
+    width:18rem;
+  }
+  .Quantity{
+    width:18rem;
+  }
+}
+
+.md-content.md-table-content{
+  max-height: 700px !important;
+  height:700px !important;
 }

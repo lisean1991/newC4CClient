@@ -34,7 +34,7 @@
     background: url('http://i.imgur.com/oSHLAzp.png') center center;
     background-size: contain;
     transition-origin: 50% 50%;
-    animation: spinner 3s infinite alternate ease-in-out;
+    animation: spinner 6s infinite alternate ease-in-out;
   }
   .spinner-center {
     display: inline-block;
