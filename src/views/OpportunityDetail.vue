@@ -213,7 +213,7 @@
         this.editMode = false;
       },
       backHome(){
-        this.$store.history.go(-1);
+        this.$store.goBack();
       },
 
     }
