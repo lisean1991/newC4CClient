@@ -157,6 +157,7 @@
         <md-progress-bar md-mode="indeterminate" v-if="sending"/>
 
         <md-card-actions>
+          <md-button type="submit" class="md-primary" :disabled="sending" v-on:click="backHome">Cancel</md-button>
           <md-button type="submit" class="md-primary" :disabled="sending">Create</md-button>
         </md-card-actions>
       </md-card>
@@ -167,20 +168,14 @@
     <div>
       <md-dialog :md-active.sync="showOwnerDialog">
         <md-dialog-title>Owners</md-dialog-title>
-        <md-table v-model="ownerList" md-card @md-selected="onOwnerSelect">
+        <md-table v-model="employeeList" md-card @md-selected="onOwnerSelect">
           <md-table-row slot="md-table-row" slot-scope="{ item }" :class="getClass(item)" md-selectable="single">
-            <md-table-cell md-label="Name" md-sort-by="id" md-numeric>{{ item.name }}</md-table-cell>
-            <md-table-cell md-label="ID" md-sort-by="name">{{ item.id }}</md-table-cell>
-            <md-table-cell md-label="Last Name" md-sort-by="email">{{ item.lastName }}</md-table-cell>
-  <!--          <md-table-cell md-label="Middle Name" md-sort-by="gender">{{ item.middleName }}</md-table-cell>-->
-            <md-table-cell md-label="First Name" md-sort-by="title">{{ item.firstName }}</md-table-cell>
-            <md-table-cell md-label="Job" md-sort-by="title">{{ item.job }}</md-table-cell>
-            <md-table-cell md-label="Manager" md-sort-by="title">{{ item.manager }}</md-table-cell>
- <!--           <md-table-cell md-label="Business Partner ID" md-sort-by="title">{{ item.businessPID }}</md-table-cell>-->
-            <md-table-cell md-label="Department" md-sort-by="title">{{ item.department }}</md-table-cell>
-            <md-table-cell md-label="Address" md-sort-by="title">{{ item.address }}</md-table-cell>
-            <md-table-cell md-label="Email" md-sort-by="title">{{ item.email }}</md-table-cell>
-<!--            <md-table-cell md-label="Status" md-sort-by="title">{{ item.status }}</md-table-cell>-->
+            <md-table-cell md-label="Name" md-sort-by="id" md-numeric>{{ item.Name }}</md-table-cell>
+            <md-table-cell md-label="ID" md-sort-by="name">{{ item.EmployeeID }}</md-table-cell>
+            <md-table-cell md-label="Last Name" md-sort-by="email">{{ item.LastName }}</md-table-cell>
+            <md-table-cell md-label="First Name" md-sort-by="title">{{ item.FirstName }}</md-table-cell>
+            <md-table-cell md-label="Job" md-sort-by="title">{{ item.TitleCodeText }}</md-table-cell>
+            <md-table-cell md-label="Address" md-sort-by="title">{{ item.AddressLine1 }}</md-table-cell>
           </md-table-row>
         </md-table>
         <md-dialog-actions>

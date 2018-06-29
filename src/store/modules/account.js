@@ -18,7 +18,6 @@ const actions = {
     try {
       const fetchApi = `${api.API_C4C_ODATA}/AccountCollection?$top=20&$format=json`;
       const json = await fetch(fetchApi);
-
       console.log(json);
       commit(types.FETCH_ACCOUNT_DONE, json.d.results);
     } catch (error) {
