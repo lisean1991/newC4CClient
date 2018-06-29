@@ -183,7 +183,6 @@
     components: {
       HotHeart
     },
-    }),
     computed:{
       ...mapGetters(['selectOpportunity']),
       ...mapState([ 'isLoadingPage']),
