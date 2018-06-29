@@ -50,7 +50,6 @@ const actions = {
         method: 'PATCH',
         body: JSON.stringify(oData.oData)
       });
-      const data = await fetch(api.API_C4C_ODATA + "/OpportunityCollection(\'" + oData.ObjectID + "\')");
       commit(types.UPDATE_OPPORTUNITY_DONE, data);
     } catch (error) {
       commit(types.UPDATE_OPPORTUNITY_FAIL, error);

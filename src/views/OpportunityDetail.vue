@@ -8,10 +8,18 @@
       <div class="header-line">
       <div class="container-header">Opportunity {{selectOpportunity.OpportunityID}}</div>
       <div class="header-action">
-        <!--<md-button v-on:click="onEdit">-->
-          <!--<md-icon>edit</md-icon>-->
-          <!--<md-tooltip md-direction="top">Edit</md-tooltip>-->
-        <!--</md-button>-->
+        <md-button v-on:click="onEdit" v-if="!editMode">
+          <md-icon>edit</md-icon>
+          <md-tooltip md-direction="top">Edit</md-tooltip>
+        </md-button>
+        <md-button v-on:click="onSave" v-if="editMode">
+          <md-icon>check</md-icon>
+          <md-tooltip md-direction="top">Edit</md-tooltip>
+        </md-button>
+        <md-button v-on:click="onCancel" v-if="editMode">
+          <md-icon>close</md-icon>
+          <md-tooltip md-direction="top">Edit</md-tooltip>
+        </md-button>
         <md-button v-on:click="backHome">
           <md-icon>arrow_back</md-icon>
           <md-tooltip md-direction="top">Go Back</md-tooltip>
@@ -24,7 +32,7 @@
         <div class="overview-header header">
           <span>Overview</span>
         </div>
-        <ul class="stepNav sixWide" v-model="phase">
+        <ul class="stepNav sixWide" >
           <li id = "001" :class="{'selected':this.selectOpportunity.SalesPhaseCode==='001'}"><a href="#" style='text-decoration:none;'>Identify Opportunity</a></li>
           <li id = "002" :class="{'selected':this.selectOpportunity.SalesPhaseCode==='002'}"><a href="#" style='text-decoration:none;'>Qualify Opportunity</a></li>
           <li id = "003" :class="{'selected':this.selectOpportunity.SalesPhaseCode==='003'}"><a href="#" style='text-decoration:none;'>Develop value proposition</a></li>
@@ -195,12 +203,15 @@
       },
       async onSave() {
           this.loadPage();
+          var dat = this.selectOpportunity;
+          dat.Name.content = this.subject;
           await this.updateOpportunity({
-            oData:{
-              Name:{
-                content:this.subject
-              }
-            },
+            // oData:{
+            //   Name:{
+            //     content:this.subject
+            //   }
+            // },
+            oData:dat,
             ObjectID: this.selectOpportunity.ObjectID
 
           });
@@ -213,7 +224,7 @@
         this.editMode = false;
       },
       backHome(){
-        this.$store.goBack();
+        window.history.go(-1);
       },
 
     }
