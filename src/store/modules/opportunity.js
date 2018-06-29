@@ -43,17 +43,17 @@ const actions = {
   },
 
   async updateOpportunity({ commit }, oData) {
-    if (!oData.ObjectID) {
-      return;
-    }
+    console.log(oData.ObjectId);
+
     try {
       const json = await fetch(api.API_C4C_ODATA + "/OpportunityCollection(\'" + oData.ObjectID + "\')", {
         method: 'PATCH',
-        body: JSON.stringify(oData)
+        body: JSON.stringify(oData.oData)
       });
-      commit(types.FETCH_OPPORTUNITY_DONE, json.d.results);
+      const data = await fetch(api.API_C4C_ODATA + "/OpportunityCollection(\'" + oData.ObjectID + "\')");
+      commit(types.UPDATE_OPPORTUNITY_DONE, data);
     } catch (error) {
-      commit(types.FETCH_OPPORTUNITY, error);
+      commit(types.UPDATE_OPPORTUNITY_FAIL, error);
     }
   },
 
@@ -96,6 +96,8 @@ const mutations = {
   },
   [types.SELECT_OPPORTUNITY](context, objectID) {
     context.selectedOpportunityObjectId = objectID;
+    context.Opportunity = context.Opportunitys.find(Opportunity => Opportunity.ObjectID === objectID);
+    console.log(context.Opportunity);
   },
 };
 
@@ -112,7 +114,7 @@ const getters = {
   },
 
   selectOpportunity(state, getter) {
-    return getter.oppList.find(Opportunity => Opportunity.ObjectID === state.selectedOpportunityObjectId) || {};
+    return state.Opportunity || {};
   }
 };
 

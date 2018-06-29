@@ -1,11 +1,23 @@
 <template>
   <div id="page">
+    <div class="loading-container" v-if="isLoadingPage">
+       <!-- <loading-icon></loading-icon> -->
+      <hot-heart></hot-heart>
+    </div>
     <div class = "page-container">
       <div class="header-line">
       <div class="container-header">Opportunity {{selectOpportunity.OpportunityID}}</div>
       <div class="header-action">
-        <md-button v-on:click="onEdit">
+        <md-button v-on:click="onEdit" v-if="!editMode">
           <md-icon>edit</md-icon>
+          <md-tooltip md-direction="top">Edit</md-tooltip>
+        </md-button>
+        <md-button v-on:click="onSave" v-if="editMode">
+          <md-icon>check</md-icon>
+          <md-tooltip md-direction="top">Edit</md-tooltip>
+        </md-button>
+        <md-button v-on:click="onCancel" v-if="editMode">
+          <md-icon>close</md-icon>
           <md-tooltip md-direction="top">Edit</md-tooltip>
         </md-button>
         <md-button v-on:click="backHome">
@@ -47,8 +59,11 @@
             <div class="overview-name">
               Subject
             </div>
-            <div class="overview-descrption">
+            <div class="overview-descrption" v-if="!editMode">
               {{selectOpportunity.Name.content}}
+            </div>
+            <div class="overview-descrption" v-else>
+              <input  v-model="subject"></input>
             </div>
           </div>
           <div class="overview-content">
@@ -179,20 +194,47 @@
 
 <script>
   import { mapActions, mapGetters, mapState } from 'vuex';
+  import HotHeart from '@/components/HotHeart';
   export default {
     name: "Waterfall",
     data: () => ({
-
+      editMode:false,
+      subject:""
     }),
+    components: {
+      HotHeart
+    },
     computed:{
       ...mapGetters(['selectOpportunity']),
+      ...mapState([ 'isLoadingPage']),
     },
     methods:{
+      ...mapActions(['loadPage', 'loadPageDone','updateOpportunity']),
       onEdit: function(){
+        this.subject = this.selectOpportunity.Name.content;
+        this.editMode = true;
+      },
+      async onSave() {
+          this.loadPage();
+          await this.updateOpportunity({
+            oData:{
+              Name:{
+                content:this.subject
+              }
+            },
+            ObjectID: this.selectOpportunity.ObjectID
+
+          });
+          this.editMode = false;
+          this.loadPageDone();
+          console.log(this.subject);
 
       },
-      backHome: function(){
-        window.history.go(-1);
+      onCancel(){
+        this.editMode = false;
+      },
+      backHome(){
+        this.$store.history.go(-1);
       },
     }
   };
